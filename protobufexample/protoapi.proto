@@ -1,0 +1,29 @@
+syntax="proto3";
+option go_package="./;protobufexample";
+service Random{
+    rpc GetDate(RequestDateTime) returns (DateTime);
+    rpc GetRandom(RandomParams) returns (RandomInt);
+    rpc GetRandomPass(RequestPass) returns (RandomPass);
+}
+
+message RandomParams{
+    int64 Seed=1;
+    int64 Place=2;
+}
+message RandomInt{
+    int64 Value=1;
+}
+message DateTime{
+    string Value=1;
+}
+message RequestDateTime{
+    string Value=1;
+}
+message RequestPass{
+    int64 Seed=1;
+    int64 Length=2;
+}
+message RandomPass{
+    string Password=1;
+}
+
